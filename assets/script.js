@@ -18,7 +18,6 @@ const slides = [
 ]
 let image = document.querySelector(".banner-img")
 let textImage = document.querySelector("#banner p")
-console.log(textImage)
 
 let rightArrowBtn = document.querySelector("#banner .arrow_right")
 let leftArrowBtn = document.querySelector("#banner .arrow_left")
@@ -26,19 +25,19 @@ let leftArrowBtn = document.querySelector("#banner .arrow_left")
 let i = 0
 
 leftArrowBtn.addEventListener("mousedown", (e) => {
- if (e.button === 0 && i > 0){
-	i--
-	image.src = "./assets/images/slideshow/" + slides[i].image
-	textImage.innerHTML = slides[i].tagLine
- }
- else{
-	
-	if (e.button === 0){
-	i = slides.length - 1
-	image.src = "./assets/images/slideshow/" + slides[i].image
-	textImage.innerHTML = slides[i].tagLine
+	if (e.button === 0 && i > 0){
+		i--
+		image.src = "./assets/images/slideshow/" + slides[i].image
+		textImage.innerHTML = slides[i].tagLine
 	}
- }
+	else{
+		
+		if (e.button === 0){
+			i = slides.length - 1
+			image.src = "./assets/images/slideshow/" + slides[i].image
+			textImage.innerHTML = slides[i].tagLine
+		}
+	}
 })
 
 rightArrowBtn.addEventListener("mousedown", (e) => {
@@ -49,9 +48,9 @@ rightArrowBtn.addEventListener("mousedown", (e) => {
 	}
 	else{
 		if (e.button === 0){
-		i = 0
-		image.src = "./assets/images/slideshow/" + slides[i].image
-		textImage.innerHTML = slides[i].tagLine
+			i = 0
+			image.src = "./assets/images/slideshow/" + slides[i].image
+			textImage.innerHTML = slides[i].tagLine
 		}
 	 }
    })
