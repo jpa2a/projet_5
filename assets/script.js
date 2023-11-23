@@ -16,13 +16,31 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
-let image = document.querySelector(".banner-img")
-let textImage = document.querySelector("#banner p")
+const image = document.querySelector(".banner-img")
+const textImage = document.querySelector("#banner p")
 
-let rightArrowBtn = document.querySelector("#banner .arrow_right")
-let leftArrowBtn = document.querySelector("#banner .arrow_left")
+const rightArrowBtn = document.querySelector("#banner .arrow_right")
+const leftArrowBtn = document.querySelector("#banner .arrow_left")
+
+const dotsContainer = document.querySelector(".dots")
+
+
+function bullets (){
+	for (j = 0; j < slides.length; j++) {
+		const dotsDiv = document.createElement("div")
+		dotsDiv.classList.add("dot")
+		dotsContainer.appendChild(dotsDiv)
+		if (i === j){
+			dotsDiv.classList.add("dot_selected")
+		}
+	}
+}
 
 let i = 0
+let j = 0
+
+bullets ()
+
 
 leftArrowBtn.addEventListener("mousedown", (e) => {
 	if (e.button === 0 && i > 0){
@@ -38,6 +56,9 @@ leftArrowBtn.addEventListener("mousedown", (e) => {
 			textImage.innerHTML = slides[i].tagLine
 		}
 	}
+	dotsContainer.innerHTML= ''
+	bullets ()
+	
 })
 
 rightArrowBtn.addEventListener("mousedown", (e) => {
@@ -53,4 +74,7 @@ rightArrowBtn.addEventListener("mousedown", (e) => {
 			textImage.innerHTML = slides[i].tagLine
 		}
 	 }
-   })
+	dotsContainer.innerHTML= ''
+	bullets ()
+
+})
